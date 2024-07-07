@@ -1,86 +1,104 @@
 package com.Admin_service;
 
+
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 
 @Entity
 public class Admin {
-		@Id
-		@Column(name="cid")
-		private int cid;
+	
+	@Id
+	@Column(name = "id",nullable = false,unique = true)
+	private int id;
 
-		@Column(name="cname")
-		private String cname;
-		
-		@Column(name="address")
-		private String address;
-		
-		@Column(name="gender")
-		private String gender;
-		
-		@Column(name="age")
-		private int age;
-		
-		@Column(name="pass")
-		private String pass;
+	@Column(name = "username",nullable = false)
+	private String username;
 
-		public int getCid() {
-			return cid;
-		}
+	@Column(name = "password",nullable = false)
+	private String pass;
 
-		public void setCid(int cid) {
-			this.cid = cid;
-		}
+	@Column(name = "email",nullable = false)
+	private String email;
 
-		public String getCname() {
-			return cname;
-		}
+	@Enumerated(EnumType.STRING)
+	@Column(name = "role",nullable = false)
+	private Role role;
+	
+	@Column(name = "address",nullable = false)
+	private String address;
 
-		public void setCname(String cname) {
-			this.cname = cname;
-		}
+	public Admin() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-		public String getAddress() {
-			return address;
-		}
+	public Admin(int id, String username, String pass, String email, Role role, String address) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.pass = pass;
+		this.email = email;
+		this.role = role;
+		this.address = address;
+	}
+	
+	
+	public int getId() {
+		return id;
+	}
 
-		public void setAddress(String address) {
-			this.address = address;
-		}
+	public void setId(int id) {
+		this.id = id;
+	}
 
-		public String getGender() {
-			return gender;
-		}
+	public String getUsername() {
+		return username;
+	}
 
-		public void setGender(String gender) {
-			this.gender = gender;
-		}
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
-		public int getAge() {
-			return age;
-		}
+	public String getPass() {
+		return pass;
+	}
 
-		public void setAge(int age) {
-			this.age = age;
-		}
+	public void setPass(String pass) {
+		this.pass = pass;
+	}
 
-		public String getPass() {
-			return pass;
-		}
+	public String getEmail() {
+		return email;
+	}
 
-		public void setPass(String pass) {
-			this.pass = pass;
-		}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-		@Override
-		public String toString() {
-			return "Admin [cid=" + cid + ", cname=" + cname + ", address=" + address + ", gender=" + gender + ", age="
-					+ age + ", pass=" + pass + "]";
-		}
-		
-		
-		
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	@Override
+	public String toString() {
+		return "Admin [id=" + id + ", username=" + username + ", pass=" + pass + ", email=" + email + ", role=" + role
+				+ ", address=" + address + "]";
+	}
+
 }
-
-		
